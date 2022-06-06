@@ -1,5 +1,5 @@
 import json
-import urllib
+import urllib.request
 import xmltodict
 
 from binascii import a2b_base64
@@ -58,7 +58,7 @@ class UPSConnection(object):
             url = self.test_urls[url_action]
 
         xml = self._generate_xml(url_action, ups_request)
-        resp = urllib.urlopen(url, xml.encode('ascii', 'xmlcharrefreplace'))\
+        resp = urllib.request(url, xml.encode('ascii', 'xmlcharrefreplace'))\
                 .read()
 
         return UPSResult(resp)
@@ -217,16 +217,7 @@ class Shipment(object):
                     },
                     'Package': {
                         'PackagingType': {
-                            'Code': '02',  # Box (see http://www.ups.com/worldshiphelp/WS11/ENU/AppHelp/Codes/Package_Type_Codes.htm)
-                        },
-                        'Dimensions': {
-                            'UnitOfMeasurement': {
-                                'Code': dimensions_unit,
-                                # default unit: inches (IN)
-                            },
-                            'Length': dimensions['length'],
-                            'Width': dimensions['width'],
-                            'Height': dimensions['height'],
+                            'Code': '01',  # Envelope (see http://www.ups.com/worldshiphelp/WS11/ENU/AppHelp/Codes/Package_Type_Codes.htm)
                         },
                         'PackageWeight': {
                             'UnitOfMeasurement': {
