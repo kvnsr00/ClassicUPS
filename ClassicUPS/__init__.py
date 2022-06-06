@@ -1,1 +1,1 @@
-from ups import UPSConnection
+from ClassicUPS.ups import UPSConnection
