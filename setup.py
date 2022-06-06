@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ClassicUPS',
-    version='0.1.8',
+    version='0.1.9',
     author='Jay Goel',
     author_email='jay@classicspecs.com',
     url='http://github.com/classicspecs/ClassicUPS/',
@@ -25,3 +25,4 @@ setup(
 )
 
 # To update pypi: `python setup.py register sdist bdist_wininst upload`
+
