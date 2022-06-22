@@ -161,7 +161,7 @@ class Shipment(object):
         'usps_delivery_confiratmion': 4,
     }
 
-    def __init__(self, ups_conn, from_addr, to_addr, dimensions, weight,
+    def __init__(self, ups_conn, from_addr, to_addr, weight,
                  file_format='EPL', reference_numbers=None, shipping_service='ground',
                  description='', dimensions_unit='IN', weight_unit='LBS',
                  delivery_confirmation=None):
