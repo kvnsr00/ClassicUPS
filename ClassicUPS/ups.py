@@ -197,6 +197,7 @@ class Shipment(object):
                         'PhoneNumber': to_addr['phone'],
                         'Address': {
                             'AddressLine1': to_addr['address1'],
+                            'AddressLine2': to_addr['address2'],
                             'City': to_addr['city'],
                             'StateProvinceCode': to_addr['state'],
                             'CountryCode': to_addr['country'],
