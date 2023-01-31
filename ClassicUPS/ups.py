@@ -173,18 +173,20 @@ class Shipment(object):
                 'Notification': [{
                     'NotificationCode': 6,
                     'EMailMessage': {
-                        'EMailAddress': to_addr['email']
-                        #'EMailAddress': from_addr['email'],
+                        'EMailAddress': to_addr['email'],
+                        'EMailAddress': 'areese@nasafcu.com',
                     },
                 }, {
                     'NotificationCode': 7,
                     'EMailMessage': {
                         'EMailAddress': to_addr['email'],
+                        'EMailAddress': 'areese@nasafcu.com',
                     }
                 }, {
                     'NotificationCode': 8,
                     'EMailMessage': {
                         'EMailAddress': to_addr['email'],
+                        'EMailAddress': 'areese@nasafcu.com',
                     }
                 }],
             }
