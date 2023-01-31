@@ -167,6 +167,27 @@ class Shipment(object):
                  delivery_confirmation=None):
 
         self.file_format = file_format
+        shipment_service_options = {}
+        if to_addr.get('email'):
+            shipment_service_options = {
+                'Notification': [{
+                    'NotificationCode': 6,
+                    'EMailMessage': {
+                        'EMailAddress': to_addr['email']
+                        #'EMailAddress': from_addr['email'],
+                    },
+                }, {
+                    'NotificationCode': 7,
+                    'EMailMessage': {
+                        'EMailAddress': to_addr['email'],
+                    }
+                }, {
+                    'NotificationCode': 8,
+                    'EMailMessage': {
+                        'EMailAddress': to_addr['email'],
+                    }
+                }],
+            }
         shipping_request = {
             'ShipmentConfirmRequest': {
                 'Request': {
@@ -218,7 +239,7 @@ class Shipment(object):
                     },
                     'Package': {
                         'PackagingType': {
-                            'Code': '01',  # Envelope (see http://www.ups.com/worldshiphelp/WS11/ENU/AppHelp/Codes/Package_Type_Codes.htm)
+                            'Code': '02',  # Customer Supplied Package (see http://www.ups.com/worldshiphelp/WS11/ENU/AppHelp/Codes/Package_Type_Codes.html)
                         },
                         'PackageWeight': {
                             'UnitOfMeasurement': {
@@ -227,6 +248,7 @@ class Shipment(object):
                             },
                             'Weight': weight,
                         },
+                        'ShipmentServiceOptions': shipment_service_options,
                         'PackageServiceOptions': {},
                     },
                 },
