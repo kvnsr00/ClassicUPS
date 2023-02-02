@@ -167,26 +167,26 @@ class Shipment(object):
                  delivery_confirmation=None):
 
         self.file_format = file_format
-        shipment_service_options = {}
+        service_options = {}
         if to_addr.get('email'):
-            shipment_service_options = {
+            service_options = {
                 'Notification': [{
                     'NotificationCode': 6,
                     'EMailMessage': {
                         'EMailAddress': to_addr['email'],
-                        'EMailAddress': 'areese@nasafcu.com',
+                        'EMailAddress': 'areese@nasafcu.com'
                     },
                 }, {
                     'NotificationCode': 7,
                     'EMailMessage': {
                         'EMailAddress': to_addr['email'],
-                        'EMailAddress': 'areese@nasafcu.com',
+                        'EMailAddress': 'areese@nasafcu.com'
                     }
                 }, {
                     'NotificationCode': 8,
                     'EMailMessage': {
                         'EMailAddress': to_addr['email'],
-                        'EMailAddress': 'areese@nasafcu.com',
+                        'EMailAddress': 'areese@nasafcu.com'
                     }
                 }],
             }
@@ -250,9 +250,9 @@ class Shipment(object):
                             },
                             'Weight': weight,
                         },
-                        'ShipmentServiceOptions': shipment_service_options,
-                        'PackageServiceOptions': {},
+                        'PackageServiceOptions': service_options,
                     },
+                    'ShipmentServiceOptions': service_options,
                 },
                 'LabelSpecification': {  # TODO: support GIF and EPL (and others)
                     'LabelPrintMethod': {
