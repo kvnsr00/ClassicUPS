@@ -250,7 +250,7 @@ class Shipment(object):
                             },
                             'Weight': weight,
                         },
-                        'PackageServiceOptions': service_options,
+                        'PackageServiceOptions': {},
                     },
                     'ShipmentServiceOptions': service_options,
                 },
